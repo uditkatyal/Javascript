@@ -1,0 +1,58 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg_color: rgb(24, 224, 24);
+  --game_color: rgb(152, 224, 152);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: var(--bg_color);
+}
+.memory-game {
+  margin: auto;
+  width: 700px;
+  height: 525px;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 1000px;
+}
+.memory-card {
+  position: relative;
+  margin: auto;
+  width: 170px;
+  height: 170px;
+  background-color: var(--game_color);
+  border-radius: 5px;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+.front-side,
+.back-side {
+  background-color: var(--game_color);
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+/* applied as the image sizes are different */
+.front-side {
+  transform: rotateY(180deg);
+}
+
+.memory-card:active {
+  transform: scale(0.97);
+  transition: transform 0.2s;
+}
